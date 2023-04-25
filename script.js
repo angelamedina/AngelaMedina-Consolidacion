@@ -1,24 +1,22 @@
 /* buscar digimon por nombre */
-    var boton = document.querySelector('#btnBuscarDigimon');
-    
-        boton.addEventListener('click', function(){
-        console.log('funcionando evento')
+    var btn = document.querySelector('#btnBuscarDigimon');
+        btn.addEventListener('click', function(){
+        //console.log('funcionando evento')
         var nombreDigimon = document.querySelector('#txtNombreDigimon');
         validar(nombreDigimon)
     });
 
- 
-          function validar(nombreDigimon){ 
-          console.log(nombreDigimon);
-            if(nombreDigimon.value != ''){
-                console.log('hay dato');
+            function validar(digimon){ 
+            //console.log(digimon);
+            if(digimon.value != ''){
+                //console.log('hay dato');
 
                 $.ajax({
                     type: 'get', 
-                    url: "https://digimon-api.vercel.app/api/digimon/agumon"  + nombreDigimon.value,
+                    url: "https://digimon-api.vercel.app/api/digimon/name"  + digimon.name,
                     dataType: "json",
                     success: function(response) {
-                    console.log(response)
+                    console.log('response')
 
                       
                     var contenedorImagen = document.querySelector('#contenedorImagen');
@@ -26,18 +24,19 @@
                     var imagenEtiqueta = document.querySelector('img');
                     //var nivelEtiqueta = document.querySelector('level');
                     //console.log('imagenEtiqueta')
-                    imagenEtiqueta.setAttribute('src', response.img )
+                    imagenEtiqueta.setAttribute('src', img )
+                    imagenEtiqueta.setAttribute('alt', 'funciona')
                     //nombreEtiqueta.setAttribute( )
                     //nivelEtiqueta.setAttribute()
                     contenedorImagen.append(imagenEtiqueta)
                     console.log('imagenEtiqueta');    
-                    //boton(response); 
+                    btn(response); 
                 }
             });
             }else{
                 alert('debes ingresar un nombre')
-                nombreDigimon.value= '';    //para dejar en blanco caja
-                //console.log('no hay dato')
+                digimon.name= '';    //para dejar en blanco caja
+                console.log('no hay dato')
             }
         
         }
@@ -54,8 +53,6 @@
         //console.log(response);
         tabla(response);
         }
-
-       
     });
 
  function tabla(datos){
