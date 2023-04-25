@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    background-color: brown;
+}
+
+.navbar {
+    background-color: yellow;
+}
+
+.imagen {
+    width: 10%;
+    height: 3%;
+    
+}
+
+.titulo {
+    text-align: center;
+    border-bottom: 1%;
+    margin-top: 3%;
+    color: white;
+}
+
+.table {
+    text-align: center;
+    width: 10%;
+       
+}
+
+.text-center {
+    background-color: white;
+    
+    
+}
+
+.poke {
+    background-color: white;
+}
+
+
+
+
